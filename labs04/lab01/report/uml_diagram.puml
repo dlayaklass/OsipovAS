@@ -1,0 +1,22 @@
+@startuml
+class Employee {
+  - __id: int
+  - __name: str
+  - __department: str
+  - __base_salary: float
+  + id: int {property}
+  + name: str {property}
+  + department: str {property}
+  + base_salary: float {property}
+  + __init__(employee_id: int, name: str, department: str, base_salary: float)
+  + __str__(): str
+}
+
+note right of Employee
+  Инкапсуляция данных через
+  приватные атрибуты (__id, __name, etc.)
+  и свойства с валидацией
+end note
+
+@enduml
+

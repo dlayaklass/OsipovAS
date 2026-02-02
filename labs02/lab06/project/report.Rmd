@@ -1,0 +1,136 @@
+---
+title: "Лабораторная работа №6 - Грамотное программирование"
+author: "Студент 2 курса"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    css: style.css
+    toc: true
+    toc_float: true
+---
+
+## Введение
+
+Данный документ создан с использованием технологии **R Markdown** для демонстрации возможностей грамотного программирования. В документе представлены различные расчеты и визуализации данных.
+
+## Теоретические сведения
+
+Грамотное программирование (literate programming) - это методология программирования, предложенная Дональдом Кнутом, которая позволяет создавать программы, где код и документация объединены в единый документ.
+
+## Данные и расчеты
+
+### Создание тестовых данных
+
+```{r setup, echo=TRUE}
+# Создание вектора случайных чисел
+set.seed(123)
+random_data <- rnorm(100, mean = 50, sd = 10)
+
+# Вычисление статистических характеристик
+mean_value <- mean(random_data)
+median_value <- median(random_data)
+sd_value <- sd(random_data)
+min_value <- min(random_data)
+max_value <- max(random_data)
+```
+
+### Статистические характеристики
+
+Среднее значение данных составляет `r round(mean_value, 2)`, медиана равна `r round(median_value, 2)`, а стандартное отклонение - `r round(sd_value, 2)`.
+
+Минимальное значение: `r round(min_value, 2)`, максимальное: `r round(max_value, 2)`.
+
+### Визуализация данных
+
+```{r visualization, echo=TRUE, fig.width=8, fig.height=6}
+# Создание гистограммы
+hist(random_data, 
+     main = "Распределение случайных данных",
+     xlab = "Значения",
+     ylab = "Частота",
+     col = "lightblue",
+     border = "black",
+     breaks = 20)
+
+# Добавление линии среднего значения
+abline(v = mean_value, col = "red", lwd = 2, lty = 2)
+text(mean_value, max(table(cut(random_data, breaks = 20))) * 0.9, 
+     "Среднее", col = "red", pos = 4)
+```
+
+### Работа с матрицами
+
+```{r matrix_operations, echo=TRUE}
+# Создание матрицы
+matrix_data <- matrix(1:20, nrow = 4, ncol = 5)
+colnames(matrix_data) <- paste("Столбец", 1:5)
+rownames(matrix_data) <- paste("Строка", 1:4)
+
+# Вычисление суммы по строкам
+row_sums <- apply(matrix_data, 1, sum)
+
+# Вычисление суммы по столбцам
+col_sums <- apply(matrix_data, 2, sum)
+```
+
+Сумма элементов матрицы: `r sum(matrix_data)`.
+
+### Таблица результатов
+
+```{r table, echo=FALSE}
+# Создание таблицы со статистикой
+stats_table <- data.frame(
+  Характеристика = c("Среднее", "Медиана", "Стандартное отклонение", 
+                     "Минимум", "Максимум"),
+  Значение = c(round(mean_value, 2), 
+               round(median_value, 2),
+               round(sd_value, 2),
+               round(min_value, 2),
+               round(max_value, 2))
+)
+
+knitr::kable(stats_table, caption = "Статистические характеристики данных")
+```
+
+## Анализ данных из пакета datasets
+
+```{r datasets_analysis, echo=TRUE}
+# Использование встроенных данных
+data(mtcars)
+
+# Вычисление среднего расхода топлива
+mean_mpg <- mean(mtcars$mpg)
+cat("Средний расход топлива (миль на галлон):", round(mean_mpg, 2))
+```
+
+Средний расход топлива в данных `mtcars` составляет `r round(mean_mpg, 2)` миль на галлон.
+
+### Корреляционный анализ
+
+```{r correlation, echo=TRUE, fig.width=8, fig.height=6}
+# Вычисление корреляции между переменными
+correlation_matrix <- cor(mtcars[, c("mpg", "hp", "wt", "disp")])
+
+# Визуализация корреляционной матрицы
+library(corrplot)
+corrplot(correlation_matrix, method = "color", type = "upper", 
+         order = "hclust", tl.cex = 0.8, tl.col = "black")
+```
+
+## Заключение
+
+Данный документ демонстрирует возможности R Markdown для создания динамических отчетов, объединяющих код, результаты вычислений и текстовое описание в единый документ.
+
+**Основные возможности, продемонстрированные в документе:**
+
+- Inline код (встроенный в текст)
+- Code chunks (блоки кода)
+- Различное форматирование текста
+- Визуализация данных
+- Таблицы результатов
+- Использование CSS для стилизации
+
+---
+
+*Документ создан: `r Sys.Date()`*
+

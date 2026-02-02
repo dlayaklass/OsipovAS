@@ -1,0 +1,46 @@
+{
+  "name": "Разработка",
+  "employees": [
+    {
+      "type": "Manager",
+      "id": 1,
+      "name": "Анна Петрова",
+      "department": "Разработка",
+      "base_salary": 70000.0,
+      "bonus": 2000.0
+    },
+    {
+      "type": "Developer",
+      "id": 2,
+      "name": "Иван Сидоров",
+      "department": "Разработка",
+      "base_salary": 50000.0,
+      "tech_stack": [
+        "Python",
+        "SQL"
+      ],
+      "seniority_level": "senior"
+    },
+    {
+      "type": "Developer",
+      "id": 3,
+      "name": "Мария Козлова",
+      "department": "Разработка",
+      "base_salary": 45000.0,
+      "tech_stack": [
+        "Java",
+        "Spring"
+      ],
+      "seniority_level": "middle"
+    },
+    {
+      "type": "Salesperson",
+      "id": 4,
+      "name": "Петр Иванов",
+      "department": "Разработка",
+      "base_salary": 40000.0,
+      "commission_rate": 0.1,
+      "sales_volume": 50000.0
+    }
+  ]
+}

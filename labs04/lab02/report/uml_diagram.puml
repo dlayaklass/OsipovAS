@@ -1,0 +1,74 @@
+@startuml
+abstract class AbstractEmployee {
+  - __id: int
+  - __name: str
+  - __department: str
+  - __base_salary: float
+  + id: int {property}
+  + name: str {property}
+  + department: str {property}
+  + base_salary: float {property}
+  + __init__(employee_id: int, name: str, department: str, base_salary: float)
+  + __str__(): str
+  + {abstract} calculate_salary(): float
+  + {abstract} get_info(): str
+}
+
+class Employee {
+  + __init__(employee_id: int, name: str, department: str, base_salary: float)
+  + calculate_salary(): float
+  + get_info(): str
+}
+
+class Manager {
+  - __bonus: float
+  + bonus: float {property}
+  + __init__(employee_id: int, name: str, department: str, base_salary: float, bonus: float)
+  + calculate_salary(): float
+  + get_info(): str
+}
+
+class Developer {
+  - __tech_stack: list[str]
+  - __seniority_level: str
+  + tech_stack: list[str] {property}
+  + seniority_level: str {property}
+  + __init__(employee_id: int, name: str, department: str, base_salary: float, tech_stack: list[str], seniority_level: str)
+  + add_skill(new_skill: str): None
+  + calculate_salary(): float
+  + get_info(): str
+}
+
+class Salesperson {
+  - __commission_rate: float
+  - __sales_volume: float
+  + commission_rate: float {property}
+  + sales_volume: float {property}
+  + __init__(employee_id: int, name: str, department: str, base_salary: float, commission_rate: float, sales_volume: float)
+  + update_sales(new_sales: float): None
+  + calculate_salary(): float
+  + get_info(): str
+}
+
+class EmployeeFactory {
+  + {static} create_employee(emp_type: str, **kwargs): AbstractEmployee
+}
+
+AbstractEmployee <|-- Employee
+Employee <|-- Manager
+Employee <|-- Developer
+Employee <|-- Salesperson
+EmployeeFactory ..> AbstractEmployee : creates
+
+note right of AbstractEmployee
+  Абстрактный базовый класс
+  определяет общий интерфейс
+end note
+
+note right of EmployeeFactory
+  Паттерн Factory Method
+  для создания объектов
+end note
+
+@enduml
+

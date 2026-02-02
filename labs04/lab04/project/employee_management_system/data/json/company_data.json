@@ -1,0 +1,99 @@
+{
+  "name": "TechInnovations",
+  "departments": [
+    {
+      "name": "Разработка",
+      "employees": [
+        {
+          "type": "Manager",
+          "id": 1,
+          "name": "Алиса Иванова",
+          "department": "Разработка",
+          "base_salary": 70000.0,
+          "bonus": 2000.0
+        },
+        {
+          "type": "Developer",
+          "id": 2,
+          "name": "Боб Смит",
+          "department": "Разработка",
+          "base_salary": 50000.0,
+          "tech_stack": [
+            "Python",
+            "SQL",
+            "Docker"
+          ],
+          "seniority_level": "senior"
+        }
+      ]
+    },
+    {
+      "name": "Продажи",
+      "employees": [
+        {
+          "type": "Salesperson",
+          "id": 3,
+          "name": "Чарли Браун",
+          "department": "Продажи",
+          "base_salary": 40000.0,
+          "commission_rate": 0.15,
+          "sales_volume": 50000.0
+        }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "project_id": 101,
+      "name": "AI Platform",
+      "description": "Разработка AI системы",
+      "deadline": "2024-12-31",
+      "status": "active",
+      "team": [
+        {
+          "type": "Developer",
+          "id": 2,
+          "name": "Боб Смит",
+          "department": "Разработка",
+          "base_salary": 50000.0,
+          "tech_stack": [
+            "Python",
+            "SQL",
+            "Docker"
+          ],
+          "seniority_level": "senior"
+        },
+        {
+          "type": "Manager",
+          "id": 1,
+          "name": "Алиса Иванова",
+          "department": "Разработка",
+          "base_salary": 70000.0,
+          "bonus": 2000.0
+        }
+      ]
+    },
+    {
+      "project_id": 102,
+      "name": "Web Portal",
+      "description": "Создание веб-портала",
+      "deadline": "2024-09-30",
+      "status": "planning",
+      "team": [
+        {
+          "type": "Developer",
+          "id": 2,
+          "name": "Боб Смит",
+          "department": "Разработка",
+          "base_salary": 50000.0,
+          "tech_stack": [
+            "Python",
+            "SQL",
+            "Docker"
+          ],
+          "seniority_level": "senior"
+        }
+      ]
+    }
+  ]
+}
