@@ -1,7 +1,7 @@
 ---
 title: "Лабораторная работа №6 - Грамотное программирование"
-author: "Студент 2 курса"
-date: "`r Sys.Date()`"
+author: "Осипов Александр Сергеевич"
+date: "03-12-2025"
 output:
   html_document:
     css: style.css
@@ -54,8 +54,7 @@ hist(random_data,
 
 # Добавление линии среднего значения
 abline(v = mean_value, col = "red", lwd = 2, lty = 2)
-text(mean_value, max(table(cut(random_data, breaks = 20))) * 0.9, 
-     "Среднее", col = "red", pos = 4)
+text(mean_value, 5, "Среднее", col = "red", pos = 4)
 ```
 
 ### Работа с матрицами
@@ -100,22 +99,9 @@ data(mtcars)
 
 # Вычисление среднего расхода топлива
 mean_mpg <- mean(mtcars$mpg)
-cat("Средний расход топлива (миль на галлон):", round(mean_mpg, 2))
 ```
 
 Средний расход топлива в данных `mtcars` составляет `r round(mean_mpg, 2)` миль на галлон.
-
-### Корреляционный анализ
-
-```{r correlation, echo=TRUE, fig.width=8, fig.height=6}
-# Вычисление корреляции между переменными
-correlation_matrix <- cor(mtcars[, c("mpg", "hp", "wt", "disp")])
-
-# Визуализация корреляционной матрицы
-library(corrplot)
-corrplot(correlation_matrix, method = "color", type = "upper", 
-         order = "hclust", tl.cex = 0.8, tl.col = "black")
-```
 
 ## Заключение
 
@@ -132,5 +118,5 @@ corrplot(correlation_matrix, method = "color", type = "upper",
 
 ---
 
-*Документ создан: `r Sys.Date()`*
+*Документ создан: 03-12-2025*
 
